@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'app.multipost'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'app.multipost'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    // Firma fija para que cada APK nuevo se instale encima del anterior
+    // sin perder las cuentas guardadas. Es una app personal: manten el repo privado.
+    signingConfigs {
+        fixed {
+            storeFile file('multipost.keystore')
+            storePassword 'multipost'
+            keyAlias 'multipost'
+            keyPassword 'multipost'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.fixed
+        }
+        debug {
+            signingConfig signingConfigs.fixed
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MultiPost</string>
+    <string name="accounts">Cuentas</string>
+    <string name="tiktok_login">Conectar TikTok</string>
+</resources>
